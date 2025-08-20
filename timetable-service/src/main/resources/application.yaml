@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: timetable-service
+
+  datasource:
+    url: ${POSTGRES_URL}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      idle-timeout: 600000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      encoding: UTF-8
+
+server:
+  forward-headers-strategy: framework
+  port: 8084
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+
+application:
+  api:
+    prefix: /timetable
+    url: ${BACKEND_URL}
+  clients:
+    user-service: ${USER_SERVICE_URL}
+    subject-service: ${SUBJECT_SERVICE_URL}
+    school-service: ${SCHOOL_SERVICE_URL}
+
+springdoc:
+  api-docs:
+    path: '/timetable/v3/api-docs'
+  swagger-ui:
+    operationsSorter: method
+    try-it-out-enabled: true
+    path: '/timetable/swagger-ui.html'
+  servers: ${SWAGGER_SERVER}
+
+logging:
+  level:
+    com.datn.timetable_service: DEBUG

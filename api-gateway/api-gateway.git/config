@@ -1,0 +1,9 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://gitlab.com/datn-fuct/api-gateway.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

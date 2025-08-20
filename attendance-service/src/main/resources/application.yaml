@@ -1,0 +1,72 @@
+spring:
+  application:
+    name: attendance-service
+
+  datasource:
+    url: ${POSTGRES_URL}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      idle-timeout: 600000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      encoding: UTF-8
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  kafka:
+    bootstrap-servers: ${KAFKA_1}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      retries: 1
+      acks: all
+      properties:
+        enable.idempotence: true
+        max.in.flight.requests.per.connection: 5
+        linger.ms: 100  # Điều chỉnh thời gian chờ đợi để tối ưu hóa batching
+
+server:
+  port: 8085
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+
+application:
+  api:
+    prefix: /attendance
+  client:
+    user-service: ${USER_SERVICE_URL}
+    timetable-service: ${TIMETABLE_SERVICE_URL}
+    school-service: http://school-service:8082
+    subject-service: http://subject-service:8080
+springdoc:
+  api-docs:
+    path: '/attendance/v3/api-docs'
+  swagger-ui:
+    operationsSorter: method
+    try-it-out-enabled: true
+    path: '/attendance/swagger-ui.html'
+  servers: ${SWAGGER_SERVER}
+
+logging:
+  level:
+    org.quartz: DEBUG

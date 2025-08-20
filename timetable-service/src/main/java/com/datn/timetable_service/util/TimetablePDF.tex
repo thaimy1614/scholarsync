@@ -1,0 +1,62 @@
+% Preparing document class and geometry
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+% Including necessary packages
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+
+% Setting font
+\usepackage{noto}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Defining custom commands
+\newcommand{\header}[1]{\textbf{\large #1}}
+\newcommand{\cell}[1]{\parbox[c]{2.5cm}{\centering #1}}
+
+% Starting document
+\begin{document}
+
+% Adding title
+\begin{center}
+    \header{Weekly Timetable} \\
+    \vspace{0.2cm}
+    Class: Your class name \\
+    Semester: Your semester ID, Week: Your week number \\
+    Generated on: \today
+\end{center}
+
+% Creating timetable table
+\begin{landscape}
+\begin{longtable}{|c|*{6}{p{2.5cm}|}}
+    \hline
+    \rowcolor{gray!20}
+    \textbf{Slot} & \textbf{Monday} & \textbf{Tuesday} & \textbf{Wednesday} & \textbf{Thursday} & \textbf{Friday} & \textbf{Saturday} \\
+    \hline
+    \endhead
+    % Adding slots dynamically
+    \foreach \slot in {1,...,10}{%
+        \slot &
+        \cell{Your slot 1 Monday} &
+        \cell{Your slot 1 Tuesday} &
+        \cell{Your slot 1 Wednesday} &
+        \cell{Your slot 1 Thursday} &
+        \cell{Your slot 1 Friday} &
+        \cell{Your slot 1 Saturday} \\
+        \hline
+    }
+\end{longtable}
+\end{landscape}
+
+% Ending document
+\end{document}

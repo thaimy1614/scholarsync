@@ -1,0 +1,74 @@
+INSERT INTO public.component_points (score,column_order,mark_type_id,is_deleted,subject_mark_id) VALUES
+	 (9.1,1,1,false,1),
+	 (8.6,2,1,false,1),
+	 (7.4,3,1,false,1),
+	 (9.5,4,1,false,1);
+
+INSERT INTO public.marks (score_average,weight,academic_performance,student_id,school_year_id,semester_id,is_deleted,conduct,class_id) VALUES
+	 (0.0,0.0,'','a7663bb4-4e4d-46de-8832-62739ee6df1e',2025,1,false,NULL,0),
+	 (0.0,0.0,'','c1427d5f-85bd-4c83-8a0d-4a4776d29ff0',2025,2,false,NULL,0),
+	 (0.0,0.0,'','8f45e3b2-dec4-4037-b840-c6071b4fa4ce',2025,1,false,NULL,0),
+	 (0.0,0.0,'','d6cc5f40-b9bb-4a90-b6f6-66fce3a1cc35',2025,2,false,NULL,0),
+	 (0.0,0.0,'','036dd47b-6108-439b-b779-8417a587a606',2025,1,false,NULL,0),
+	 (0.0,0.0,'','344901cc-0191-4399-9c6e-26b04a6de5af',2025,2,false,NULL,0),
+	 (0.0,0.0,'','e3fd3d14-3a4e-4c08-b44c-65ecfaeb6190',2025,1,false,NULL,0),
+	 (0.0,0.0,'','58b3f11c-ebb2-4d42-a73a-4c81be56a3af',2025,2,false,NULL,0),
+	 (9.0,0.33,'','58b3f11c-ebb2-4d42-a73a-4c81be56a3af',2025,1,false,'good',10),
+	 (8.0,0.67,'','58b3f11c-ebb2-4d42-a73a-4c81be56a3af',2025,2,false,'poor',10);
+
+INSERT INTO public.mark_types (name_type,weight,subject_id,column_count,is_deleted) VALUES
+	 ('Oral',0.1,1,1,false),
+	 ('15-minute',0.1,1,1,false),
+	 ('final',0.4,1,1,false),
+	 ('period',0.2,1,1,false),
+	 ('midterm',0.2,1,1,false);
+
+INSERT INTO public.subjects ("name",class_id,weekly_slots,max_slots_per_session,prefer_consecutive,is_main_subject,special_slot,special_room,school_year_id,is_deleted) VALUES
+	 ('Mathematics',10,0,0,false,false,0,0,2025,false),
+	 ('Physics',10,0,0,false,false,0,0,2025,false),
+	 ('Chemistry',10,0,0,false,false,0,0,2025,false),
+	 ('Biology',10,0,0,false,false,0,0,2025,false),
+	 ('English',10,0,0,false,false,0,0,2025,false),
+	 ('History',10,0,0,false,false,0,0,2025,false),
+	 ('Geography',10,0,0,false,false,0,0,2025,false),
+	 ('Civic Education',10,0,0,false,false,0,0,2025,false),
+	 ('Physical Education',10,0,0,false,false,0,0,2025,false),
+	 ('Mathematics',11,0,0,false,false,0,0,2025,false);
+INSERT INTO public.subjects ("name",class_id,weekly_slots,max_slots_per_session,prefer_consecutive,is_main_subject,special_slot,special_room,school_year_id,is_deleted) VALUES
+	 ('Physics',11,0,0,false,false,0,0,2025,false),
+	 ('Chemistry',11,0,0,false,false,0,0,2025,false),
+	 ('Biology',11,0,0,false,false,0,0,2025,false),
+	 ('English',11,0,0,false,false,0,0,2025,false),
+	 ('History',11,0,0,false,false,0,0,2025,false),
+	 ('Geography',11,0,0,false,false,0,0,2025,false),
+	 ('Civic Education',11,0,0,false,false,0,0,2025,false),
+	 ('Physical Education',11,0,0,false,false,0,0,2025,false),
+	 ('Mathematics',12,0,0,false,false,0,0,2025,false),
+	 ('Physics',12,0,0,false,false,0,0,2025,false);
+INSERT INTO public.subjects ("name",class_id,weekly_slots,max_slots_per_session,prefer_consecutive,is_main_subject,special_slot,special_room,school_year_id,is_deleted) VALUES
+	 ('Chemistry',12,0,0,false,false,0,0,2025,false),
+	 ('Biology',12,0,0,false,false,0,0,2025,false),
+	 ('English',12,0,0,false,false,0,0,2025,false),
+	 ('History',12,0,0,false,false,0,0,2025,false),
+	 ('Geography',12,0,0,false,false,0,0,2025,false),
+	 ('Civic Education',12,0,0,false,false,0,0,2025,false),
+	 ('Physical Education',12,0,0,false,false,0,0,2025,false);
+	 
+INSERT INTO public.subjects ("name",class_id,weekly_slots,max_slots_per_session,prefer_consecutive,is_main_subject,special_slot,special_room,school_year_id,is_deleted) VALUES
+	 ('Toán',100,0,0,true,true,0,0,0,false),
+	 ('Toán',101,0,0,true,true,0,0,0,false),
+	 ('văn',11,2,1,true,true,2,2,2025,false),	 
+	 ('Văn',0,0,0,true,true,0,0,0,false),
+	 ('string',0,0,0,true,true,0,0,0,false),
+	 ('Hoá',10,10,10,true,true,2,1,2025,false),
+	 ('Mathematics',1,0,0,false,false,0,0,0,false),
+	 ('Mathematics',2,0,0,false,false,0,0,0,false);
+
+INSERT INTO public.subjects_teachers (subject_id,teacher_id,is_deleted) VALUES
+	 (1,'df55a8ee-9881-4e3c-9b6d-a338bc9fa239',false),
+	 (1,'7b642d09-c877-4fba-b24b-4146e18424f4',false),
+	 (2,'7d62a1f6-f0dc-4a50-bbfd-6da97f8b23de',false),
+	 (4,'7d62a1f6-f0dc-4a50-bbfd-6da97f8b23de',false),
+	 (35,'a2b24d86-7f1f-47ca-93cc-5bb5190b743c',false);
+
+

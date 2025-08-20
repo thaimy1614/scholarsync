@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: notification-service
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      value-deserializer: ${SPRING_KAFKA_CONSUMER_VALUE_DESERIALIZER:org.apache.kafka.common.serialization.ByteArrayDeserializer}
+      auto-offset-reset: ${SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET:earliest}
+  google:
+    client-secret-path: client_secret.json
+    redirect-uri: ${GMAIL_REDIRECT_URI}
+    scopes: https://www.googleapis.com/auth/gmail.send
+  data:
+    redis:
+      port: ${REDIS_PORT}
+      host: ${REDIS_HOST}
+server:
+    port: 8087
+application:
+    api:
+      prefix: /notification
+
+
